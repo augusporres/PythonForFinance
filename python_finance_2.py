@@ -12,5 +12,10 @@ style.use('ggplot')
 #df = web.DataReader('AAPL', 'yahoo', start, end)
 #df.to_csv('appple.csv')
 
-df = pd.read_csv('apple.csv')
-print(df.head())
+df = pd.read_csv('apple.csv', parse_dates=True, index_col=0)
+#print(df.head())
+
+
+print(df[['Open', 'Close']].head())
+df['Adj Close'].plot()
+plt.show()
